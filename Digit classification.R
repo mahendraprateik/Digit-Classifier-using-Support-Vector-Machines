@@ -17,7 +17,6 @@ ggplot(train,aes(x=as.factor(label),fill=label))+
   scale_fill_gradient(low="lightgreen",high="blue",guide=FALSE)+
   labs(title="Count of the labels",x="Labels (0-9)")
 
-#plotting a label randomly, lets say 50
 #Some images need roation like in the following example
 m = matrix(unlist(train[10,-1]),nrow = 29,byrow = T)
 image(m ,col=grey.colors(255)) #3 appears to be tilted 90 degrees anticlockwise
@@ -28,7 +27,7 @@ image(m ,col=grey.colors(255)) #3 appears to be tilted 90 degrees anticlockwise
   rotate_clockwise <- function(x) { t(apply(x, 2, rev))}
    n= rotate_clockwise(matrix(unlist(train[10,-1]),nrow = 28,byrow = T))
    image(n ,col=grey.colors(255))
-   #2 Use libray pracma
+#2 Use library pracma
 library(pracma)
 rotate_ninty <- function(x) { rot90(x, 1) }
 
